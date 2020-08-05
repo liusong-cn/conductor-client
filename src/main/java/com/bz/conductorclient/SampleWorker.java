@@ -24,7 +24,8 @@ public class SampleWorker implements Worker {
     public TaskResult execute(Task task) {
         TaskResult result = new TaskResult(task);
         result.setStatus(TaskResult.Status.COMPLETED);
-        result.getOutputData().put("is_idents_added","true");
+        result.getOutputData().put("is_idents_added","false");
+        System.out.println("task开始执行");
         return result;
     }
 }
