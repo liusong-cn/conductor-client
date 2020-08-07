@@ -12,6 +12,7 @@ public class BeforeHelloActivityImpl implements BeforeHelloActivity {
         try {
             //模拟暂停
             Thread.sleep(3000);
+            System.out.println("暂停三秒");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
