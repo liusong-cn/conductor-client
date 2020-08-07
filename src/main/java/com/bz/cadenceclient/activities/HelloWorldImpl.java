@@ -16,10 +16,14 @@ public class HelloWorldImpl implements  HelloWorld {
 
     private final HelloActivity activity = Workflow.newActivityStub(HelloActivity.class);
 
+    private final BeforeHelloActivity beforeActivity = Workflow.newActivityStub(BeforeHelloActivity.class);
+
     @Override
     public void sayHello(String name) {
-        while ("bye".equals(greeting)){
-            activity.say(++count + ": " + greeting + " " + name + "!");
+        while (!"bye".equals(greeting)){
+            //模拟服务的串行调用，当上一个activity产生结果后下一个activity才开始执行
+            String result = beforeActivity.offer(name);
+            activity.say(++count + ": " + greeting + " " + result + "!");
             String oldGreeting  = greeting;
             Workflow.await(()->!Objects.equals(oldGreeting,greeting));
         }

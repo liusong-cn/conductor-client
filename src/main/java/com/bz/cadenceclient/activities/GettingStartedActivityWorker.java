@@ -10,7 +10,7 @@ public class GettingStartedActivityWorker {
     public static void main(String[] args) {
         Worker.Factory factory = new Worker.Factory("192.168.5.210",7933,"test-domain");
         Worker worker = factory.newWorker("HelloWorldTaskList");
-        worker.registerActivitiesImplementations(new HelloActivityImpl(System.out));
+        worker.registerActivitiesImplementations(new HelloActivityImpl(System.out),new BeforeHelloActivityImpl());
         factory.start();
     }
 }
