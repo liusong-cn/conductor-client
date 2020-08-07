@@ -41,6 +41,17 @@
             <artifactId>conductor-client</artifactId>
             <version>2.25.5</version>
         </dependency>
+        <!--uber/cadence client-->
+        <dependency>
+            <groupId>com.uber.cadence</groupId>
+            <artifactId>cadence-client</artifactId>
+            <version>2.7.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
